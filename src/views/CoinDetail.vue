@@ -88,13 +88,20 @@
           <td>{{ m.baseSymbol }} / {{ m.quoteSymbol }}</td>
           <td>
             <px-button
+              type="submit"
               :is-loading="m.isLoading || false"
               v-if="!m.url"
               @custom-click="getWebSite(m)"
             >
               <slot>Obtener Link</slot>
             </px-button>
-            <a v-else class="hover:underline text-green-600" target="_blanck">{{ m.url }}</a>
+            <a
+              v-else
+              class="hover:underline text-green-600"
+              target="_blanck"
+              v-bind:href="m.url"
+              >{{ m.url }}</a
+            >
           </td>
         </tr>
       </table>
